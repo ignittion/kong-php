@@ -85,6 +85,7 @@ abstract class AbstractApi
 	{
 		$verb		= strtoupper($verb);
 		$api		= "{$this->url}:{$this->port}/{$uri}";
+		error_log($api);
 		$headers	= array_merge(
 			$headers,
 			['Content-Type: application/json']

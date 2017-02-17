@@ -5,6 +5,7 @@ namespace Ignittion\Kong;
 use Ignittion\Kong\Apis\Api;
 use Ignittion\Kong\Apis\Consumer;
 use Ignittion\Kong\Apis\Node;
+use Ignittion\Kong\Apis\OAuth2Plugin;
 use Ignittion\Kong\Apis\Plugin;
 
 class Kong
@@ -79,5 +80,15 @@ class Kong
     public function plugin ()
     {
         return new Plugin($this->url, $this->port);
+    }
+
+    /**
+     * Returns a new instance of the OAuth2 Plugin API
+     *
+     * @return \Ignittion\Kong\Apis\OAuth2Plugin
+     */
+    public function oauth2Plugin ()
+    {
+        return new OAuth2Plugin($this->url, $this->port);
     }
 }
