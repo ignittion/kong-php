@@ -13,10 +13,10 @@ class OAuth2Plugin extends AbstractApi
    * @param array $options
    * @return \stdClass
    */
-  public function oauth2Tokens (array $options = [])
+  public function oauth2Tokens(array $options = [])
   {
-    $body   = $this->createRequestBody($options);
-    return $this->call('post', 'oauth2_tokens', [], $body);
+      $body   = $this->createRequestBody($options);
+      return $this->call('post', 'oauth2_tokens', [], $body);
   }
 
 }

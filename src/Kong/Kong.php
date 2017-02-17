@@ -89,7 +89,7 @@ class Kong
      *
      * @return \Ignittion\Kong\Apis\OAuth2Plugin
      */
-    public function oauth2Plugin ()
+    public function oauth2Plugin()
     {
         return new OAuth2Plugin($this->url, $this->port);
     }
