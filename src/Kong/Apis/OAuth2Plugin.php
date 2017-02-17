@@ -18,5 +18,4 @@ class OAuth2Plugin extends AbstractApi
       $body   = $this->createRequestBody($options);
       return $this->call('post', 'oauth2_tokens', [], $body);
   }
-
 }
