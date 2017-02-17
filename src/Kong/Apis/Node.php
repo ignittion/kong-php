@@ -9,7 +9,7 @@ class Node extends AbstractApi
      *
      * @return \stdClass
      */
-    public function get ()
+    public function get()
     {
         $response   = $this->call('get', '');
 
@@ -21,7 +21,7 @@ class Node extends AbstractApi
      *
      * @return \stdClass
      */
-    public function status ()
+    public function status()
     {
         return $this->call('get', 'status');
     }
@@ -31,7 +31,7 @@ class Node extends AbstractApi
      *
      * @return \stdClass
      */
-    public function cluster ()
+    public function cluster()
     {
         return $this->call('get', 'cluster');
     }
@@ -41,7 +41,7 @@ class Node extends AbstractApi
      *
      * @return boolean
      */
-    public function removeFromCluster ()
+    public function removeFromCluster()
     {
         $result = $this->call('delete', 'cluster');
         return ($result->code == 200);

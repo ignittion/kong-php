@@ -4,7 +4,7 @@
 	"keywords": ["kong", "kong gateway", "laravel kong"],
     "type": "Library",
     "require": {
-		"php": ">=5.5.9",
+		"php": ">=5.6",
         "mashape/unirest-php": "2.*"
     },
     "require-dev": {
@@ -21,5 +21,10 @@
 			"Ignittion\\Kong\\": "src/Kong"
 		}
 	},
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "minimum-stability": "dev"
 }

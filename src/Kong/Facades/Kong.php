@@ -11,5 +11,8 @@ class Kong extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor () { return 'kong'; }
+    protected static function getFacadeAccessor()
+    {
+        return 'kong';
+    }
 }

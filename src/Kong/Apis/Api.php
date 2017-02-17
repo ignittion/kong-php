@@ -20,7 +20,7 @@ class Api extends AbstractApi
      * @param null|string $api
      * @return \stdClass
      */
-    public function get ($api = null, array $params = [])
+    public function get($api = null, array $params = [])
     {
         $uri    = 'apis' . ($api !== null ? "/{$api}" : "");
         return $this->call('get', $uri, $params);
@@ -35,7 +35,7 @@ class Api extends AbstractApi
      * @param array $options
      * @return \stdClass
      */
-    public function add ($upstreamUrl, array $options = [])
+    public function add($upstreamUrl, array $options = [])
     {
         $body   = $this->createRequestBody($options, ['upstream_url' => $upstreamUrl]);
         return $this->call('post', 'apis', [], $body);
@@ -50,7 +50,7 @@ class Api extends AbstractApi
      * @param array $options
      * @return \stdClass
      */
-    public function update ($api, array $options)
+    public function update($api, array $options)
     {
         $body   = $this->createRequestBody($options);
         return $this->call('patch', "apis/{$api}", [], $body);
@@ -65,7 +65,7 @@ class Api extends AbstractApi
      * @param array $options
      * @return \stdClass
      */
-    public function upsert ($api, array $options)
+    public function upsert($api, array $options)
     {
         $body   = $this->createRequestBody($options);
         return $this->call('put', "apis/{$api}", [], $body);
@@ -79,7 +79,7 @@ class Api extends AbstractApi
      * @param string $api
      * @return \stdClass
      */
-    public function delete ($api)
+    public function delete($api)
     {
         return $this->call('delete', "apis/{$api}", [], $body);
     }

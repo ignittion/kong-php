@@ -21,7 +21,7 @@ class Consumer extends AbstractApi
      * @param array $params
      * @return \stdClass
      */
-    public function get ($user = null, array $params = [])
+    public function get($user = null, array $params = [])
     {
         $uri    = 'consumers' . ($user ? "/{$user}" : "");
         return $this->call('get', $uri, $params);
@@ -35,7 +35,7 @@ class Consumer extends AbstractApi
      * @param array $options
      * @return \stdClass
      */
-    public function create (array $options = [])
+    public function create(array $options = [])
     {
         $body   = $this->createRequestBody($options);
         return $this->call('post', 'consumers', [], $body);
@@ -48,7 +48,7 @@ class Consumer extends AbstractApi
      * @param array $options
      * @return \stdClass
      */
-    public function update ($user, array $options = [])
+    public function update($user, array $options = [])
     {
         $body   = $this->createRequestBody($options);
         return $this->call('patch', "consumers/{$user}", [], $body);
@@ -60,7 +60,7 @@ class Consumer extends AbstractApi
      * @param array $options
      * @return \stdClass
      */
-    public function upsert (array $options = [])
+    public function upsert(array $options = [])
     {
         $body   = $this->createRequestBody($options);
         return $this->call('put', "consumers", [], $body);
@@ -72,7 +72,7 @@ class Consumer extends AbstractApi
      * @param string $user
      * @return boolean
      */
-    public function delete ($user)
+    public function delete($user)
     {
         $resp   = $this->call('delete', "consumers/{$user}");
         return ($resp->code == 204);

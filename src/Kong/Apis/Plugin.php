@@ -12,7 +12,7 @@ class Plugin extends AbstractApi
      * @param array $params
      * @return \stdClass
      */
-    public function all (array $params = [])
+    public function all(array $params = [])
     {
         return $this->call('get', 'plugins', $params);
     }
@@ -24,7 +24,7 @@ class Plugin extends AbstractApi
      * @param array $params
      * @return \stdClass
      */
-    public function get ($id, array $params = [])
+    public function get($id, array $params = [])
     {
         return $this->call('get', "plugins/{$id}", $params);
     }
@@ -38,7 +38,7 @@ class Plugin extends AbstractApi
      * @param array $params
      * @return \stdClass
      */
-    public function perApi ($api, array $params = [])
+    public function perApi($api, array $params = [])
     {
         return $this->call('get', "apis/{$api}/plugins", $params);
     }
@@ -50,7 +50,7 @@ class Plugin extends AbstractApi
      *
      * @return \stdClass
      */
-    public function enabled ()
+    public function enabled()
     {
         return $this->call('get', 'plugins/enabled');
     }
@@ -63,7 +63,7 @@ class Plugin extends AbstractApi
      * @param string $plugin
      * @return \stdClass
      */
-    public function schema ($plugin)
+    public function schema($plugin)
     {
         return $this->call('get', "plugins/schema/{$plugin}");
     }
@@ -77,7 +77,7 @@ class Plugin extends AbstractApi
      * @param string $plugin
      * @param array $body
      */
-    public function add ($api, $plugin, array $body = [])
+    public function add($api, $plugin, array $body = [])
     {
         $body['name']   = $plugin;
         return $this->call('post', "apis/{$api}/plugins", [], $body);
@@ -93,7 +93,7 @@ class Plugin extends AbstractApi
      * @param array $body
      * @return \stdClass
      */
-    public function update ($api, $plugin, array $body = [])
+    public function update($api, $plugin, array $body = [])
     {
         return $this->call('patch', "apis/{$api}/plugins/{$id}", [], $body);
     }
@@ -107,7 +107,7 @@ class Plugin extends AbstractApi
      * @param array $body
      * @return \stdClass
      */
-    public function upsert ($api, array $body = [])
+    public function upsert($api, array $body = [])
     {
         return $this->call('put', "apis/{$api}/plugins", [], $body);
     }
@@ -121,7 +121,7 @@ class Plugin extends AbstractApi
      * @param string $plugin
      * @return \stdClass
      */
-    public function delete ($api, $plugin)
+    public function delete($api, $plugin)
     {
         return $this->call('delete', "apis/{$api}/plugin/{$plugin}");
     }

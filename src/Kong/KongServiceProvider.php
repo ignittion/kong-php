@@ -10,7 +10,7 @@ class KongServiceProvider extends ServiceProvider
      * Bootstrap the application events
      *
      */
-    public function boot ()
+    public function boot()
     {
         $version    = strtoupper(app()->version());
 
@@ -26,7 +26,7 @@ class KongServiceProvider extends ServiceProvider
      * Register the ServiceProvider
      *
      */
-    public function register ()
+    public function register()
     {
         $this->app->singleton('kong', function ($app) {
             return new Kong(config('kong.url'), config('kong.port'));
