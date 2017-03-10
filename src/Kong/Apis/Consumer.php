@@ -24,7 +24,8 @@ class Consumer extends AbstractApi
     public function get($user = null, array $params = [])
     {
         $uri    = 'consumers' . ($user ? "/{$user}" : "");
-        return $this->call('get', $uri, $params);
+        $result = $this->call('get', $uri, $params);
+        return $result;
     }
 
     /**

@@ -4,7 +4,6 @@ namespace Ignittion\Kong\Apis;
 
 class OAuth2Plugin extends AbstractApi
 {
-
   /**
    * Add OAuth2 tokens to Kong.
    *
@@ -15,10 +14,10 @@ class OAuth2Plugin extends AbstractApi
    */
   public function oauth2Tokens(array $options = [])
   {
-      $body   = $this->createRequestBody($options);
+      $body = $this->createRequestBody($options);
       return $this->call('post', 'oauth2_tokens', [], $body);
   }
-  
+
   /**
    * Get a specific client application.
    *
@@ -31,5 +30,20 @@ class OAuth2Plugin extends AbstractApi
   public function oauth2($clientId, array $params = [])
   {
       return $this->call('get', 'oauth2?client_id=' . $clientId, $params);
+  }
+
+  /**
+   * Add OAuth2 applications to Kong.
+   *
+   * @see https://getkong.org/plugins/oauth2-authentication/#create-an-application
+   *
+   * @param string $consumerId
+   * @param array $options
+   * @return \stdClass
+   */
+  public function oauth2Application($consumerId, array $options = [])
+  {
+    $body = $this->createRequestBody($options);
+    return $this->call('post', 'consumers/' . $consumerId . '/oauth2', [], $body);
   }
 }
