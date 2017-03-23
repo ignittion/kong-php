@@ -59,6 +59,13 @@ abstract class AbstractApi
     protected $url;
 
     /**
+     * Global request headers
+     *
+     * @var array
+     */
+    protected $request_headers = ['Content-Type: application/json'];
+
+    /**
      * Class Constructor
      *
      * @param string $url
@@ -88,7 +95,7 @@ abstract class AbstractApi
         $api        = "{$this->url}:{$this->port}/{$uri}";
         $headers    = array_merge(
             $headers,
-            ['Content-Type: application/json']
+            $this->request_headers
         );
 
         try {
@@ -173,6 +180,21 @@ abstract class AbstractApi
     public function getRawBody()
     {
         return $this->rawBody;
+    }
+
+    /**
+     * Set headers to be used during the request
+     *
+     * @param array $headers
+     * @param bool  $merge
+     *
+     * @return $this
+     */
+    public function setHeaders(array $headers, $merge = true)
+    {
+        $this->request_headers = $merge ? array_merge($this->request_headers, $headers) : $headers;
+
+        return $this;
     }
 
     /**
